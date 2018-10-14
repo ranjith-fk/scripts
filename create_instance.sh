@@ -25,11 +25,7 @@ for i in `cat .output.txt | grep InstanceId | awk '{print $2}'  | cut -d'"' -f2`
 
 sleep 2
 
-<<<<<<< HEAD
 echo -e "\tYou can use Instance IP and attached .pem key to login the servers.\n\nInstructions:\n\n1). Download the attached .pem key\n2). Set proper permission for .pem key: chmod 400 hadoop_admin.pem\n3). Username: ec2-user\n4). Login syntax: ssh -i "hadoop_admin.pem" ec2-user@YOUR_PUBLIC_IP\n" > .public_ip.txt
-=======
-echo -e "\tYou can use Instance IP and attached .pem key to login the servers.\n\nInstructions:\n\n1). Download the attached .pem key\n2). Set proper permission for .pem key: chmod 400 hadoop_admin.pem\n3. Username: ec2-user\n4. Login syntax: ssh -i "hadoop_admin.pem" ec2-user@YOUR_PUBLIC_IP\n" > .public_ip.txt
->>>>>>> cfec59c35bfed13ff9640d7e856dbbfed97d7bbb
 
 # getting public ips
 for i in `cat .output.txt | grep InstanceId | awk '{print $2}'  | cut -d'"' -f2` ; do echo $i: `aws ec2 describe-instances --instance-ids $i | grep PublicIpAddress | awk -F: '{print $2}' | cut -d'"' -f2` ; done  >> .public_ip.txt
