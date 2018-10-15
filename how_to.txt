@@ -1,0 +1,7 @@
+Make sure the below list:
+
+1). Instance launch limit
+2). Mail_list.txt file contents
+3). Instance count number in the create_instance script and run the below command.
+
+# for i in `cat mail_list.txt` ; do ./create_instance.sh $i ; echo Servers Details sent to: $i ; done
